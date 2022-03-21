@@ -1,0 +1,7 @@
+<launch>
+
+  <arg name="filename" default="/media/rosbag/jsi_storage_20200131/testagain" />
+
+  <node name="rosbag_recording" pkg="rosbag" type="record" args="-a --split --size=2048 -O $(arg filename) -x /submap_list" />
+
+</launch>

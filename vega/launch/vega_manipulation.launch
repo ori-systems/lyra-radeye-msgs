@@ -1,0 +1,13 @@
+<launch>
+    <!-- 
+        base vega file which brings the vega up and runs the urdf descrition node
+    -->
+    
+    <include file="$(find vega)/launch/vega_base.launch"/>  
+
+    <include file="$(find turtlebot3_manipulation_bringup)/launch/turtlebot3_manipulation_bringup.launch"/>  
+
+<!--    <include file="$(find turtlebot3_manipulation_moveit_config)/launch/move_group.launch"/> -->
+    <include file="$(find vega_moveit_config)/launch/move_group.launch"/> 
+    
+</launch>

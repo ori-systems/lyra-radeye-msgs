@@ -1,0 +1,152 @@
+<?xml version="1.0" ?>
+<robot name="vega_for_open_manipulator" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:include filename="$(find vega)/urdf/common_properties.xacro"/>
+
+  <link name="base_footprint"/>
+
+  <joint name="base_joint" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="base_link" />
+    <origin xyz="0 0 0.035" rpy="0 0 0"/>
+  </joint>
+
+  <link name="base_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="-1.57075 0 0"/>
+      <geometry>
+        <mesh filename="package://vega/meshes/VEGA_assembly_no_arm_STL.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="light_black"/>
+    </visual>
+
+<!--    <collision>
+      <origin xyz="-0.064 0 0.047" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.266 0.266 0.094"/>
+      </geometry>
+    </collision>  -->
+
+  </link>
+
+  <joint name="wheel_left_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="wheel_left_link"/>
+    <origin xyz="0 0.125 0.016" rpy="-1.57 0 0"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+
+  <link name="wheel_left_link">
+<!--    <visual>
+      <origin xyz="0 0 0.035" rpy="0 1.57 0"/>
+      <geometry>
+        <mesh filename="package://vega/meshes/track_assembly.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="dark"/>
+    </visual> 
+
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length="0.018" radius="0.033"/>
+      </geometry>
+    </collision> -->
+
+  </link>
+
+  <joint name="wheel_right_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="wheel_right_link"/>
+    <origin xyz="0 -0.125 0.016" rpy="-1.57 0 0"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+
+  <link name="wheel_right_link">
+<!--    <visual>
+      <origin xyz="0 0 0" rpy="-3.14 1.57 0"/>
+      <geometry>
+        <mesh filename="package://vega/meshes/track_assembly.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="dark"/>
+    </visual> 
+
+    <collision>
+      <origin xyz="0 0.001 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length="0.018" radius="0.033"/>
+      </geometry>
+    </collision> -->
+
+  </link>
+
+  <joint name="imu_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="imu_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <link name="imu_link"/>
+
+  <joint name="scan_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="base_scan"/>
+    <origin xyz="-0.13 0.1 0.145" rpy="0 0 0"/> 
+  </joint>
+
+  <link name="base_scan">
+<!--    <visual>
+      <origin xyz="0 0 0.0" rpy="1.57 0 3.14"/>
+      <geometry>
+        <mesh filename="package://vega/meshes/RP_lidar_A1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="dark"/>
+    </visual> 
+
+    <collision>
+      <origin xyz="0.015 0 -0.0065" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length="0.0315" radius="0.045"/>
+      </geometry>
+    </collision> -->
+
+  </link>
+
+  <joint name="camera_joint" type="fixed">
+    <origin xyz="0.22 0 0.135" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="camera_link"/>
+  </joint>
+
+  <link name="camera_link">
+ <!-- 	<visual>
+      <origin xyz="0.0 0.0 0.0" rpy="-1.57 3.14 1.57"/>
+      <geometry>
+        <mesh filename="package://vega/meshes/Intel_RealSense_Depth_Camera_D435.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name ="dark"/>
+    </visual>
+
+	<collision>
+      <origin xyz="0.015 0 -0.0065" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length="0.0315" radius="0.045"/>
+      </geometry>
+    </collision>
+-->
+
+  </link>
+
+<!--  <joint name="camera_rgb_joint" type="fixed">
+    <origin xyz="0.003 0.011 0.009" rpy="0 0 0"/>
+    <parent link="camera_link"/>
+    <child link="camera_rgb_frame"/>
+  </joint>
+  <link name="camera_rgb_frame"/>
+
+  <joint name="camera_rgb_optical_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="-1.57 0 -1.57"/>
+    <parent link="camera_rgb_frame"/>
+    <child link="camera_rgb_optical_frame"/>
+  </joint>
+  <link name="camera_rgb_optical_frame"/> -->
+
+</robot>

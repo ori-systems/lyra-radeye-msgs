@@ -1,0 +1,15 @@
+<launch>
+
+<!--  <node pkg="epd2" type="epd_node_MK25.py" name="epdMK25" output="screen">
+  </node>
+
+  <node pkg="epd2" type="epd_node_N2.py" name="epdN2" output="screen">
+  </node>
+-->
+
+  <node pkg="radeye" type="radeye_daisychain_node" name="RadEye">
+	<param name="_serial_port" value="/dev/radeye"/>
+      </node> 
+
+
+</launch>

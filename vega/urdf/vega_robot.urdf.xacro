@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<robot name="vega" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <!-- Include VEGA base URDF -->
+  <xacro:include filename="$(find vega)/urdf/vega_robot_base.urdf.xacro"/>
+
+  <!-- Include OpenMANIPULATOR URDF -->
+<!--  <xacro:include filename="$(find vega)/urdf/open_manipulator_vega.urdf.xacro"/> -->
+
+
+   Include Spinning Lidar URDF 
+<!--  <xacro:include filename="$(find lidar_reconstruction)/urdf/lidar_recon_vega.urdf.xacro"/> -->
+
+
+  <!-- Base fixed joint -->
+  <joint name="base_fixed" type="fixed">
+    <origin xyz="-0.150 -0.07 0.070" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="link1"/>
+  </joint> 
+
+</robot>

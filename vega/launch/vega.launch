@@ -1,0 +1,57 @@
+<launch>
+    <!-- 
+        base vega file which brings the vega up and runs the urdf descrition node
+    -->
+    
+    <include file="$(find vega)/launch/vega_slam.launch"/>  
+
+    <include file="$(find video_stream_opencv)/launch/camera.launch">
+	<arg name="camera_name" value="camera1"/>
+	<arg name="video_stream_provider" value="/dev/camFront"/>
+    </include>  
+    <include file="$(find video_stream_opencv)/launch/camera.launch">
+	<arg name="camera_name" value="camera2"/>
+	<arg name="video_stream_provider" value="/dev/camArm"/>
+    </include>  
+
+<!--    <include file="$(find vega_navigation)/launch/vega_navigation.launch"/>  -->
+  
+<!--  <node pkg="tf2_ros" type="static_transform_publisher" name="radeye_to_robot" args="0 0 0 0 0 0 base_link radeye"/> 
+
+<node pkg="tf2_ros" type="static_transform_publisher" name="radeye_to_radeye" args="0 0 0 0 0 0 radeye RadEye"/> 
+-->
+<!--  <node pkg="vega_tools" type="reduce_cam_resolution.py" name="camera_res_reducer">
+  </node> -->
+
+  
+<!--  <node pkg="vega_tools" type="signal_strength_alarm.py" name="signal_strength_alarm" args="ubuntu">
+  </node> --> 
+  
+  <node pkg="vega_tools" type="readCurrent.py" name="readCurrent" output="screen">
+  </node>
+
+  <node pkg="vega_tools" type="light_control.py" name="light_control">
+  </node> 
+
+<!--  <node pkg="vega_tools" type="heartbeat_receiver.py" name="heartbeat_robot">
+  </node> 
+
+  <node pkg="vega_tools" type="rtb_controller.py" name="rtb_controller">
+  </node> -->
+
+<!--  <node pkg="radeye" type="radeye_daisychain_node" name="RadEye">
+    <param name="_serial_port" type="string" value="/dev/ttyACM4"/>
+  </node> 
+-->
+<!--  
+  <node pkg="radeye" type="radeye_radiation_point_visualiser.py" name="radiation_pointcloud_generator">
+    <param name="config_file" type="string" value="config/magnox_radeye_topics.json"/>
+  </node>       
+  -->
+
+
+  <!-- <include file="$(find open_manipulator_controller)/launch/open_manipulator_controller.launch"/>   -->
+
+  
+
+</launch>

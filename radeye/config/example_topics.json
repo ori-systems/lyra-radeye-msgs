@@ -1,0 +1,19 @@
+{
+    "Topics":[
+        {
+            "SubscriberName": "/Radeye1/RadEye51104_0/data",
+            "RadiationValue": 1,
+            "RadiationType": "alpha"
+        },
+        {
+            "SubscriberName": "/Radeye1/RadEye51104_1/data",
+            "RadiationValue": 2,
+            "RadiationType": "beta"
+        },
+        {
+            "SubscriberName": "/Radeye0/RadEye33686_0/data",
+            "RadiationValue": 4,
+            "RadiationType": "gamma"
+        }
+    ]
+}

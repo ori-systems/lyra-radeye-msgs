@@ -1,0 +1,7 @@
+<launch>
+  <include file="$(find vega)/launch/vega.launch"/>  
+
+<!--  <include file="$(find vega)/launch/rad_sensors.launch"/>  -->
+
+  <include file="$(find open_manipulator_controller)/launch/open_manipulator_controller.launch"/>  
+</launch>
