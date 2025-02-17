@@ -1,8 +1,0 @@
-<launch>
-<param name="robot_description" command="cat $(find lidar_reconstruction)/urdf/lidar_recon_vega.urdf" />
-    <node name="lidar_recon_state_publisher" pkg="robot_state_publisher" type="state_publisher">
-        <remap from="robot_description" to="robot_description" />
-        <remap from="joint_states" to="lidar_reconstruction/joint_states" />
-    </node>
-</launch>
-
