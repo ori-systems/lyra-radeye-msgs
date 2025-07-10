@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(radeye)
+project(radeye_msgs)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 add_compile_options(-std=c++11)
@@ -107,8 +107,6 @@ add_service_files(
 
 
 catkin_package(
-  INCLUDE_DIRS include
-  LIBRARIES radeye
   CATKIN_DEPENDS roscpp rospy std_msgs message_runtime
 #  DEPENDS 
 )
@@ -119,10 +117,10 @@ catkin_package(
 
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
-include_directories(
-  include
-  ${catkin_INCLUDE_DIRS}
-)
+# include_directories(
+#   include
+#   ${catkin_INCLUDE_DIRS}
+# )
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
@@ -137,8 +135,6 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-add_executable(${PROJECT_NAME}_node src/${PROJECT_NAME}_node.cpp)
-add_executable(${PROJECT_NAME}_daisychain_node src/${PROJECT_NAME}_daisychain_node.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -151,13 +147,13 @@ add_executable(${PROJECT_NAME}_daisychain_node src/${PROJECT_NAME}_daisychain_no
 #add_dependencies(${PROJECT_NAME}_node ${PROJECT_NAME}_generate_messages_cpp )
 
 ## Specify libraries to link a library or executable target against
- target_link_libraries(${PROJECT_NAME}_node
-   ${catkin_LIBRARIES}
- )
+#  target_link_libraries(${PROJECT_NAME}_node
+#    ${catkin_LIBRARIES}
+#  )
 
- target_link_libraries(${PROJECT_NAME}_daisychain_node
-   ${catkin_LIBRARIES}
- )
+#  target_link_libraries(${PROJECT_NAME}_daisychain_node
+#    ${catkin_LIBRARIES}
+#  )
 
 #############
 ## Install ##

@@ -1,9 +1,0 @@
-{
-    "Topics":[
-        {
-            "SubscriberName": "/RadEye/RadEye32802_0/data",
-            "RadiationValue": 4,
-            "RadiationType": "gamma"
-        }
-    ]
-}
